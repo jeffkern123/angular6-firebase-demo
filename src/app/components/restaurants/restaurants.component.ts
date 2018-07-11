@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantService } from '../../service/restaurant.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private restaurantService: RestaurantService) { }
 
   ngOnInit() {
+    this.restaurantService.getRestaurants().subscribe(restaurants => {console.log(restaurants); });
   }
 
 }

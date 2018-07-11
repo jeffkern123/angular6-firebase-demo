@@ -1,3 +1,9 @@
 <p>
   restaurants works!
 </p>
+<i class="material-icons">alarm_on</i>
+<ul>
+    <li class="text" *ngFor="let restaurants of restaurants | async">
+      {{restaurants.name}}
+    </li>
+</ul>
