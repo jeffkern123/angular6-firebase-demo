@@ -1,17 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../../service/restaurant.service';
-
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
   styleUrls: ['./restaurants.component.css']
 })
 export class RestaurantsComponent implements OnInit {
-
+  restaurants: any;
   constructor( private restaurantService: RestaurantService) { }
 
   ngOnInit() {
-    this.restaurantService.getRestaurants().subscribe(restaurants => {console.log(restaurants); });
+    this.getRestaurantsList();
   }
-
+  getRestaurantsList() {
+  // Use snapshotChanges().map() to store the key
+  this.restaurantService.getRestaurantsList().snapshotChanges().pipe(
+    map(changes =>
+      changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+    )
+  ).subscribe(restaurants => {
+    this.restaurants = restaurants;
+  });
+}
 }
