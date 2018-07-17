@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RestaurantService } from '../../service/restaurant.service';
 import { map } from 'rxjs/operators';
+import { RestaurantService } from '../../service/restaurant.service';
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',

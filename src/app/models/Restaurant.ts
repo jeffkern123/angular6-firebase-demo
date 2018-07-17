@@ -1,3 +1,3 @@
-export interface Restaurant {
+export class Restaurant {
   name: string;
 }

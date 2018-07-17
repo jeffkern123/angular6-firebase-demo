@@ -17,6 +17,9 @@ export class RestaurantService {
   getRestaurantsList(): AngularFireList<Restaurant> {
     return this.restaurantsRef;
   }
+  private handleError(error) {
+    console.log(error);
+  }
 }
 
 
