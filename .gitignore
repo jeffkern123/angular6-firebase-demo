@@ -9,8 +9,13 @@
 /node_modules
 
 # Ignore the new environments directories.
+<<<<<<< HEAD
 /src/environments
 /src/environments/environment.ts
+=======
+environments/*
+environment.ts
+>>>>>>> 469126016418a9e121e1143811ec0474f1cf89ba
 
 # IDEs and editors
 /.idea
